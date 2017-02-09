@@ -1,5 +1,6 @@
 * {
   font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
 body {
@@ -98,4 +99,8 @@ header {
 
 .modal-body {
   text-align: left !important;
+}
+
+b {
+  font-weight: 500;
 }
