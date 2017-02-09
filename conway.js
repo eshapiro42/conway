@@ -113,7 +113,9 @@ $(document).ready(function() {
       $(this).removeClass("dead").addClass("alive");
       grid[parseInt(x)][parseInt(y)] = 1;
     }
-      stepGrid();
+      setTimeout(function() {
+        stepGrid();
+      }, 450);
   });
   
   window.addEventListener('resize', function(event){
