@@ -104,6 +104,10 @@ $(document).ready(function() {
   function win() {
     $('#winModal').modal(focus);
     $('#win-text').html(numClicks + " moves? Nice!");
+    createGrid();
+    numClicks = 0;
+    $("#moves").html(numClicks.toString() + " moves");
+
   }
   
    createGrid();
@@ -125,7 +129,9 @@ $(document).ready(function() {
       grid[parseInt(x)][parseInt(y)] = 1;
     }
       setTimeout(function() {
+        var scroll = $(document).scrollTop();
         stepGrid();
+        $(document).scrollTop(scroll);
       }, 450);
   });
   
@@ -139,8 +145,6 @@ $(document).ready(function() {
   $(document).on("click", "#rules", function() {
     $('#rulesModal').modal(focus);
   });
-
-
   
   window.addEventListener('resize', function(event){
     if ($(window).width() >= $(window).height()){
