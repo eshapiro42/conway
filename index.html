@@ -8,31 +8,86 @@
   <link rel='stylesheet' type='text/css' href='conway.css'/>
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,300" rel="stylesheet">  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script
   src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
 
 </head>
 <body>
   <header>
     <h1>Conway's Game of Death</h1>
-    <h3 id="moves">0 moves</h2>
   </header>
   
   <div class="container">
     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary">Left</button>
-      <button type="button" class="btn btn-secondary">Middle</button>
-      <button type="button" class="btn btn-secondary">Right</button>
+      <h3 id="rules" class="red-button">rules</h3>
+      <h3 id="moves">0 moves</h3>
+      <h3 id="reset" class="red-button">reset</h3>
     </div>
   </div>
 
 
   <div id="grid"></div>
+  
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="winModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">You won!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-body" id="win-text">
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" id="rulesModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Rules</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          This game is based on Conway's Game of Life, the infamous cellular automaton devised by John Conway in 1970.
+          <br /><br />
+          The rules are simple:
+          <br /><br />
+          <ul>
+            <li>At any time, each cell on the board is either <div class="alive text">alive</div> or <div class="dead text">dead</div>.</li>
+            <br />
+            <li>You, the player, choose a cell. If that cell is currently alive, it will die. If it is currently dead, it will come alive.</li>
+            <br />
+            <li>The entire board is then recalculated according to the traditional rules of Conway's Game of Life.</li>
+          </ul>
+          <br />
+          In case you aren't familiar with Conway's Game of Life, the board recalculation undergoes the following transitions:
+          <br /><br />
+          <ul>
+            <li>Any live cell with fewer than two live neighbors dies, as if caused by underpopulation.</li>
+            <br />
+            <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
+            <br />
+            <li>Any live cell with more than three live neighbors dies, as if by overpopulation.</li>
+            <br />
+            <li>Any dead cell with exactly three neighbors becomes a live cell, as if by reproduction.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
          
   <script src="conway.js"></script>
 </body>

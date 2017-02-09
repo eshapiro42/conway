@@ -1,7 +1,7 @@
 $(document).ready(function() {
   
   var gridSize   = 15;
-  var cellDim    = 80 / gridSize;
+  var cellDim    = 75 / gridSize;
   var aliveProb  = 15;
   var numClicks  = 0;
   
@@ -22,6 +22,7 @@ $(document).ready(function() {
   
   var birthSound = new Audio('assets/pop_sound.mp3');
   var deathSound = new Audio('assets/fade_sound.mp3');
+  var resetSound = new Audio('assets/shatter_sound.mp3')
   
     function createGrid() {
     for (var i = 1; i <= gridSize; i++) {
@@ -38,12 +39,14 @@ $(document).ready(function() {
   
   function renderGrid() {
     var html;
+    var numAlive = 0;
     $("#grid").html('');
     for (var i = 1; i <= gridSize; i++) {
       html = '<div class="row">'; // begin row
       for (var j = 1; j <= gridSize; j++) {
         if (grid[i][j] == 1){
           html += '<div class="cell-wrapper"><div class="cell alive" id=' + i + ',' + j + '"></div></div>';
+          numAlive += 1;
         } else {
           html += '<div class="cell-wrapper"><div class="cell dead" id=' + i + ',' + j + '"></div></div>';
         }
@@ -55,6 +58,9 @@ $(document).ready(function() {
       $(".cell-wrapper").css({"width":  cellDim.toString() + "vh", "height": cellDim.toString() + "vh"});
     } else {
       $(".cell-wrapper").css({"width":  cellDim.toString() + "vw", "height": cellDim.toString() + "vw"});
+    }
+    if(numAlive == 0){
+      win();
     }
   }
   
@@ -95,6 +101,11 @@ $(document).ready(function() {
     renderGrid();
   }
   
+  function win() {
+    $('#winModal').modal(focus);
+    $('#win-text').html(numClicks + " moves? Nice!");
+  }
+  
    createGrid();
   
   $(document).on("click", ".cell", function() {
@@ -117,6 +128,19 @@ $(document).ready(function() {
         stepGrid();
       }, 450);
   });
+  
+  $(document).on("click", "#reset", function() {
+    resetSound.play();
+    createGrid();
+    numClicks = 0;
+    $("#moves").html(numClicks.toString() + " moves");
+  });
+  
+  $(document).on("click", "#rules", function() {
+    $('#rulesModal').modal(focus);
+  });
+
+
   
   window.addEventListener('resize', function(event){
     if ($(window).width() >= $(window).height()){

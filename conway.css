@@ -14,12 +14,35 @@ header {
   color: #F1DEDE;
 }
 
-h3 {
+.red-button {
+  font-weight: 100 !important;
+  background: #FE938C;
+  display: inline-block;
+  padding: 8px;
+  color: #5D576B !important;
+  margin: 10px;
+  margin-top: 30px;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px #555062;
+}
+
+.red-button:hover {
+  opacity: .8;
+}
+
+.red-button:active {
+  transform: translate(2px, 2px);
+}
+
+#moves {
   font-weight: 100 !important;
   background: #6CD4FF;
   display: inline-block;
   padding: 8px;
   color: #5D576B !important;
+  margin: 10px;
+  margin-top: 30px;
+  box-shadow: 5px 5px 5px #555062;
 }
 
 #grid {
@@ -31,32 +54,48 @@ h3 {
   //border-style: solid;
 }
 
-.row {
-  line-height: 0;
-  margin: 1px;
-}
-
-.cell-wrapper {
-  display: inline-block;
-  float: none;
-  margin-right: .5px;
-  margin-left: .5px
-}
-
-.cell {
-  height: inherit;
-  width: inherit;
-  margin: auto;
-}
-
-.cell:hover {
-  opacity: 0.6;
-}
-
-  .alive {
-    background-color: #6CD4FF;
+  .row {
+    line-height: 0;
+    margin: 1px;
   }
 
-  .dead {
-    background-color: #6B6678;
-  }
+    .cell-wrapper {
+      display: inline-block;
+      float: none;
+      margin-right: .5px;
+      margin-left: .5px
+    }
+
+      .cell {
+        height: inherit;
+        width: inherit;
+        margin: auto;
+      }
+
+      .cell:hover {
+        opacity: 0.6;
+      }
+
+        .alive {
+          background-color: #6CD4FF;
+        }
+
+        .alive.text {
+          display: inline;
+          padding: 2px;
+        }
+
+        .dead {
+          background-color: #6B6678;
+        }
+
+        .dead.text {
+          display: inline;
+          color: white;
+          padding: 2px;
+        }
+
+
+.modal-body {
+  text-align: left !important;
+}
