@@ -105,12 +105,15 @@ $(document).ready(function() {
   }
   
   function win() {
-    $('#winModal').modal(focus);
-    $('#win-text').html(numClicks + " moves? Nice!");
-    createGrid();
-    numClicks = 0;
-    $("#moves").html(numClicks.toString() + " moves");
-
+    setTimeout(function() {
+      $('#winModal').modal(focus);
+      $('#win-text').html(numClicks + " moves? Nice!");
+    }, 500);
+    setTimeout(function() {
+      createGrid();
+      numClicks = 0;
+      $("#moves").html(numClicks.toString() + " moves");
+    }, 1500);
   }
   
    createGrid();
