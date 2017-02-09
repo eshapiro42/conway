@@ -1,5 +1,5 @@
 * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif !important;
   font-weight: 300;
 }
 
@@ -12,7 +12,11 @@ header {
   padding-top: 20px;
   padding-bottom: 10px;
   background: #555062;
+}
+
+header h1 {
   color: #F1DEDE;
+  font-weight: 300 !important;
 }
 
 .red-button {
@@ -97,7 +101,7 @@ header {
         }
 
 
-.modal-body {
+.rules.modal-body {
   text-align: left !important;
 }
 

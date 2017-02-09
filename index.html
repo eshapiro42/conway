@@ -2,9 +2,7 @@
 <html>
 <head>
   <title>Eric Shapiro | Conway's Game of Death</title>
-  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
-    
   <link rel='stylesheet' type='text/css' href='conway.css'/>
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,500" rel="stylesheet">  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -14,8 +12,6 @@
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-
 </head>
 <body>
   <header>
@@ -38,12 +34,15 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">You won!</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <div class="modal-body" id="win-text">
         </div>
-      <div class="modal-body" id="win-text">
-      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
@@ -57,7 +56,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body rules">
           This game is based on Conway's Game of Life, the infamous cellular automaton devised by John Conway in 1970.
           <br /><br />
           The rules are simple:
@@ -72,7 +71,7 @@
             <li>You win the game when you <b>kill all the cells</b>. Try to do it in the fewest moves possible!</li>
           </ul>
           <br />
-          <b>Fun fact:</b> Since the board is generated for you randomly, there's actually a chance you could win in zero moves! But the probability of that is 1 in 7598742300000000, so good luck with that.
+          <b>Fun fact:</b> Since the board is generated for you randomly, there's actually a chance you could win in zero moves! But the probability of that happening is 1 in 7598742300000000, so good luck.
           <br /><br />
           In case you aren't familiar with Conway's Game of Life, when the board recalculates it undergoes the following changes:
           <br /><br />

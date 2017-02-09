@@ -1,5 +1,8 @@
 $(document).ready(function() {
   
+  
+  // If you change gridSize or aliveProb, remember to also change
+  // the probability of winning in zero moves in the 'rules' modal
   var gridSize   = 15;
   var cellDim    = 75 / gridSize;
   var aliveProb  = 15;
