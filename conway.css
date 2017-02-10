@@ -5,17 +5,19 @@
 
 body {
   text-align: center;
-  background: #5D576B !important;
+  background: #FEE1DF !important;
 }
 
 header {
   padding-top: 20px;
-  padding-bottom: 10px;
-  background: #555062;
+  padding-bottom: 15px;
+  background: #FE938C;
+  box-shadow: 0px 5px 5px #555062;
+
 }
 
 header h1 {
-  color: #F1DEDE;
+  color: #5D576B;
   font-weight: 300 !important;
 }
 
@@ -53,10 +55,7 @@ header h1 {
 #grid {
   margin-top: 20px;
   display: inline-block;
-  box-shadow: 30px 18px 10px -10px #555062;
-  //border-color: white;
-  //border-width: thick;
-  //border-style: solid;
+  //box-shadow: 30px 18px 10px -10px #555062;
 }
 
   .row {
