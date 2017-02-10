@@ -7,6 +7,7 @@ $(document).ready(function() {
   var cellDim    = Math.floor(75 / gridSize);
   var aliveProb  = 15;
   var numClicks  = 0;
+  var clickable  = true;
   
   var grid = new Array(gridSize + 2);
   for (var i = 0; i <= gridSize + 1; i++) {
@@ -105,15 +106,13 @@ $(document).ready(function() {
   }
   
   function win() {
-    setTimeout(function() {
-      $('#winModal').modal(focus);
-      $('#win-text').html(numClicks + " moves? Nice!");
-    }, 500);
+    $('#winModal').modal(focus);
+    $('#win-text').html(numClicks + " moves? Nice!");
     setTimeout(function() {
       createGrid();
       numClicks = 0;
       $("#moves").html(numClicks.toString() + " moves");
-    }, 1500);
+    }, 1000);
   }
   
   function displayMoves() {
@@ -127,26 +126,31 @@ $(document).ready(function() {
    createGrid();
   
   $(document).on("click", ".cell", function() {
-    numClicks++;
-    var x = this.id.split(",")[0];
-    var y = this.id.split(",")[1];
-    displayMoves();
-    if($(this).hasClass("alive")) {
-      deathSound.play();
-      $(this).fadeOut(function() {
-        $(this).removeClass("alive").addClass("dead").fadeIn('fast');
-        grid[parseInt(x)][parseInt(y)] = 0;
-      });
-    } else {
-      birthSound.play();
-      $(this).removeClass("dead").addClass("alive");
-      grid[parseInt(x)][parseInt(y)] = 1;
-    }
+    console.log('click');
+    if (clickable) {
+      numClicks++;
+      var x = this.id.split(",")[0];
+      var y = this.id.split(",")[1];
+      displayMoves();
+      if($(this).hasClass("alive")) {
+        deathSound.play();
+        $(this).fadeOut(function() {
+          $(this).removeClass("alive").addClass("dead").fadeIn('fast');
+          grid[parseInt(x)][parseInt(y)] = 0;
+        });
+      } else {
+        birthSound.play();
+        $(this).removeClass("dead").addClass("alive");
+        grid[parseInt(x)][parseInt(y)] = 1;
+      }
+      clickable = false;
       setTimeout(function() {
         var scroll = $(document).scrollTop();
         stepGrid();
         $(document).scrollTop(scroll);
+        clickable = true;
       }, 450);
+    }
   });
   
   $(document).on("click", "#reset", function() {
