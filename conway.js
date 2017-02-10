@@ -3,8 +3,8 @@ $(document).ready(function() {
   
   // If you change gridSize or aliveProb, remember to also change
   // the probability of winning in zero moves in the 'rules' modal
-  var gridSize   = 15;
-  var cellDim    = 75 / gridSize;
+  var gridSize   = 15;  // gridSize must be <= 75
+  var cellDim    = Math.floor(75 / gridSize);
   var aliveProb  = 15;
   var numClicks  = 0;
   
@@ -116,13 +116,21 @@ $(document).ready(function() {
     }, 1500);
   }
   
+  function displayMoves() {
+    if (numClicks == 1){
+      $("#moves").html(numClicks.toString() + " move");
+    } else {
+      $("#moves").html(numClicks.toString() + " moves");
+    }
+  }
+  
    createGrid();
   
   $(document).on("click", ".cell", function() {
     numClicks++;
     var x = this.id.split(",")[0];
     var y = this.id.split(",")[1];
-    $("#moves").html(numClicks.toString() + " moves");
+    displayMoves();
     if($(this).hasClass("alive")) {
       deathSound.play();
       $(this).fadeOut(function() {
