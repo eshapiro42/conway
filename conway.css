@@ -73,7 +73,8 @@ header h1 {
       .cell {
         height: inherit;
         width: inherit;
-        margin: auto;
+        margin: auto; 
+        box-shadow: 3px 3px 3px .5px rgba(85,80,98,0.4);
       }
 
       .cell:hover {
