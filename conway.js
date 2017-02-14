@@ -134,10 +134,8 @@ $(document).ready(function() {
       displayMoves();
       if($(this).hasClass("alive")) {
         deathSound.play();
-        $(this).fadeOut(function() {
-          $(this).removeClass("alive").addClass("dead").fadeIn('fast');
-          grid[parseInt(x)][parseInt(y)] = 0;
-        });
+        $(this).removeClass("alive").addClass("dead").fadeIn('fast');
+        grid[parseInt(x)][parseInt(y)] = 0;
       } else {
         birthSound.play();
         $(this).removeClass("dead").addClass("alive");
