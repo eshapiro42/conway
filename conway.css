@@ -3,6 +3,10 @@
   font-weight: 300;
 }
 
+b {
+  font-weight: 500;
+}
+
 body {
   text-align: center;
   background: #FEE1DF !important;
@@ -56,7 +60,6 @@ header h1 {
 #grid {
   margin-top: 20px;
   display: inline-block;
-  //box-shadow: 30px 18px 10px -10px rgba(85,80,98,0.5);
 }
 
   .row {
@@ -105,6 +108,28 @@ header h1 {
   text-align: left !important;
 }
 
-b {
-  font-weight: 500;
+.modal-title {
+  margin: auto;
+}
+
+.modal-header {
+  background: #FE938C !important;
+  border-bottom: 0 !important;
+  box-shadow: 0 3px 3px rgba(85,80,98,0.5);
+}
+
+.modal-footer {
+  border-top: 0 !important;
+  margin-top: -50px !important;
+  margin: auto;
+}
+
+.modal-content {
+  border-radius: 0 !important;
+  border-width: 0 !important;
+  background: #FEE1DF !important;
+}
+
+.btn-secondary {
+  border-radius: 0 !important;
 }
